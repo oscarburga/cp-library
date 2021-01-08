@@ -2,9 +2,9 @@ namespace KMP {
 	template<typename V, typename S>
 	void kmp(const int n, V& b, const S& s) {
 		b[0] = 0;
-		for(int i = 1, j = 0; i<n; i++) {
+		for(int i = 1, j = 0; i<n; b[i++] = j) {
 			while(j > 0 && s[i] != s[j]) j = b[j-1];
-			b[i] = j += (s[i] == s[j]);
+			j += s[i] == s[j];
 		}
 	}
 	template<typename M, typename V, typename S> 
