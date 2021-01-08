@@ -9,5 +9,4 @@ namespace ZF {
 			if (i + k > r) l = i, r = i+k;
 		}
 	}
-
 }
