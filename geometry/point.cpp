@@ -31,13 +31,8 @@ struct pt {
 	friend long double dis(const pt &p, const pt &q) { return sqrtl(dis2(p, q)); }
 	friend long double angle(const pt &p, const pt &q) { return atan2l(p % q, p * q); }
 	friend ostream& operator << (ostream &o, const pt &p) { return o<<'('<<p.x<<", "<<p.y<<")\n"; }
-	bool operator == (const pt<long long> &q) const { return x == q.x && y == q.y; }
-	bool operator == (const pt<long double> &q) const { return sgn(x - q.x) == 0 && sgn(y - q.y) == 0; }
-	bool operator < (const pt<long long> &q) const { return (x < q.x) || (x == q.x && y < q.y); }
-	bool operator < (const pt<long double> &q) const { 
-		return (x < q.x - eps) || (sgn(x - q.x) == 0 && y < q.y - eps); 
-	}
+	bool operator == (const pt &q) const { return sgn(x-q.x) == 0 && sgn(y-q.y) == 0; }
+	bool operator < (const pt &q) const { return sgn(x-q.x) < 0 || (sgn(x-q.x) == 0 && sgn(y-q.y) < 0); }
 };
-
 void read(pt<long double> &p) { scanf("%Lf %Lf", &p.x, &p.y); }
 void read(pt<long long> &p) { scanf("%lld %lld", &p.x, &p.y); }
