@@ -6,7 +6,7 @@ template<typename T>
 struct pt { 
 	T x, y;
 	explicit pt(T x = 0, T y = 0) : x(x), y(y) {}
-	template<typename R> explicit pt(const pt<R> &p) : x(p.x), y (p.y) {}
+	template<typename R> explicit pt(const pt<R> &p) : x(p.x), y(p.y) {}
 	pt& operator += (const pt &p) { x += p.x, y += p.y; return *this; }
 	pt& operator -= (const pt &p) { x -= p.x, y -= p.y; return *this; }
 	pt& operator *= (const T &k) { x *= k, y *= k; return *this; }

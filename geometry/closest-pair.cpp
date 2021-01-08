@@ -1,6 +1,6 @@
 namespace Geo {
-	template<typename T, typename V, T Eps = T(1)>  //use Eps = 1e-9 for doubles
-	pair<pt<T>, pt<T>> closest_pair(const int n, V& pts) {
+	template<typename T, typename V>  //use Eps = 1e-9 for doubles, 1 for integers
+	pair<pt<T>, pt<T>> closest_pair(const int n, V& pts, const T& Eps = T(1)) {
 		sort(begin(pts), begin(pts)+n);
 		set<pt<T>> st;
 		pt<T> p;
@@ -23,5 +23,5 @@ namespace Geo {
 		}
 		#undef sqr
 		return make_pair(swapxy(ret.first), swapxy(ret.second));
-	}
+	} //returns pair(pt(0, 0), pt(0,0)) for n = 1
 };
