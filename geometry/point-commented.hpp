@@ -1,7 +1,11 @@
 /* Class was designed to work with "long long" and "long double" types.
 Should work fine for any integer type, but beware of overflow! Modify cross and dot product for it.
 Should work fine with other floating point types, but beware of precision issues.
-Modify return types as needed if using different types (long double -> double/float, etc) */
+Modify return types as needed if using different types (long double -> double/float, etc) 
+
+For other basic operations/tasks, check this great handbook:
+https://vlecomte.github.io/cp-geo.pdf
+*/
 
 const long double eps = 1e-9;
 template<typename T> int sgn(T x) { return (x > 0) - (x < 0); }
